@@ -23,4 +23,18 @@ client.on("messageCreate", (message) => {
   }
 });
 
+client.on("interactionCreate", (interaction) => {
+  if (!interaction.isChatInputCommand()) return;
+  console.log(interaction.commandName);
+  if (interaction.commandName === "hey") {
+    interaction.reply("hey");
+  }
+  if (interaction.commandName === "ping") {
+    interaction.reply("pong!");
+  }
+  if (interaction.commandName === "bing") {
+    interaction.reply("bong!");
+  }
+});
+
 client.login(process.env.DISCORD_TOKEN);
